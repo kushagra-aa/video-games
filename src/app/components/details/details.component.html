@@ -1,28 +1,41 @@
 <div class="details">
     <div class="game-banner">
-        <img src="{{game.background_image}}" alt="{{game.name}} Image" class="game-banner-img">
+        <img src="../../../assets/banner-overlay.png" class="game-banner-img game-banner-overlay">
+        <img src="{{game.background_image}}" alt="{{game.name}} Image" class="game-banner-img game-banner-main">
     </div>
     <div class="game-content">
-        <div class="details-wrapper">
-            <div class="game-header">
-                <h1 class="game-header-title">{{game.name}}</h1>
-                <h2 class="game-header-release-date">
-                    Released on {{game.released | date}}
-                </h2>
-                <p class="game-header-genres">
-                    <span *ngFor="let genre of game.genres; let last=last">
-                        {{genre.name}}
-                        <span *ngIf="!last">,</span>
-                    </span>
-                </p>
-                <div class="game-gauge">
-                    <mwl-gauge class="two" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="gameRating"
-                        [animated]="true" [color]="getColor" [animationDuration]="2">
-                    </mwl-gauge>
-                    <p class="game-gauge-label">Metacritic</p>
+        <div class="game-header">
+            <div class="noselect game-header-release game-header-top">
+                Released on
+                <div class="game-header-top-val game-release">
+                    {{game.released | date}}
                 </div>
             </div>
-            <app-game-tabs [game]="game"></app-game-tabs>
+            <div class="noselect game-header-age-rating game-header-top">
+                age rating
+                <div class="game-header-top-val game-age-rating">
+                    {{game.esrb_rating.name}}
+                </div>
+            </div>
+            <h1 class="game-header-title">{{game.name}}</h1>
+            <div class="noselect game-header-gauge">
+                <mwl-gauge class="two" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="gameRating"
+                    [animated]="true" [color]="getColor" [animationDuration]="2">
+                </mwl-gauge>
+                <p class="noselect game-header-gauge-label">Metacritic</p>
+            </div>
+            <div class="game-header-platforms  noselect">
+                <img *ngFor="let gamePlatform of game.parent_platforms" class="game-header-platforms-platform"
+                    src="assets/platforms/{{ gamePlatform.platform.name.toLowerCase() }}.svg"
+                    alt="{{ gamePlatform.platform.name }}" />
+            </div>
+            <p class="noselect game-header-genres">
+                <span *ngFor="let genre of game.genres; let last=last">
+                    {{genre.name}}
+                    <span *ngIf="!last">,</span>
+                </span>
+            </p>
         </div>
+        <app-game-tabs [game]="game"></app-game-tabs>
     </div>
 </div>

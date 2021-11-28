@@ -1,83 +1,108 @@
-.filters {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding-left: 20px;
-  ::ng-deep {
-    .mat-form-field-infix {
-      background: blue;
-      border-color: white !important;
-      border-top: none;
-      padding-left: 5px !important;
-    }
-    .mat-select-value,
-    .mat-select-arrow,
-    .mat-form-field-hide-placeholder .mat-select-placeholder,
-    .mat-form-field-appearance-legacy .mat-form-field-label {
-      color: white !important;
-      opacity: 1;
-    }
-    .mat-form-field-appearance-legacy .mat-form-field-label {
-      padding-left: 5px;
-    }
-    .mat-form-field-appearance-legacy .mat-form-field-underline {
-      background: white !important;
+@use "../../../scss" as *;
+.hero {
+  &-bg {
+    filter: blur(5px);
+    background: url("./../../../assets/BG-home.png");
+    background-repeat: no-repeat;
+    background-position: -1em 0;
+    width: 100vw;
+    height: 790px;
+    position: relative;
+    top: -0.5em;
+    left: -0.5em;
+    z-index: 1;
+  }
+  &-content {
+    z-index: 2;
+    position: absolute;
+    top: 20rem;
+    left: 33rem;
+    color: map-get($pallet, primary1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &-title-con {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-weight: normal;
+    font-size: 60px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    text-align: center;
+    height: 227.08px;
+    width: 435px;
+    line-height: 5rem;
+    user-select: none;
+  }
+  &-title {
+    width: 260px;
+    font-family: $press;
+    display: inline;
+  }
+  &-title-text {
+    width: 130px;
+    height: 50px;
+    display: inline;
+    font-family: $press;
+    color: map-get($pallet, primary3);
+    background: map-get($pallet, primary1);
+    transition: all 0.2s linear;
+    &:hover {
+      width: 150px;
+      height: 70px;
     }
   }
-}
-.games {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 1200px;
-  margin: 20px auto;
-  .game {
-    width: 280px;
-    margin: 10px;
-    height: 330px;
-    overflow: hidden;
-    border-radius: 5px;
-    background: wheat;
-    transition-duration: 0.4s;
+
+  &-title::before {
+    height: 227.08px;
+    width: 435px;
+    content: "";
+  }
+  a {
+    text-decoration: none;
+  }
+  &-btn {
+    width: 278px;
+    height: 65.83px;
+    border: none;
+    font-size: 30px;
+    font-family: $press;
+    background: map-get($pallet, primary3);
+    color: map-get($pallet, primary1);
+    text-transform: uppercase;
     cursor: pointer;
-    &:hover {
-      transform: translateY(-3px);
-    }
-    &-thumb-con {
-      background: #000;
-      position: relative;
-      height: 172px;
-      color: white;
-    }
-    &-thumb {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      height: 172px;
-    }
-    &-des {
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      height: 157px;
-    }
-    &-name {
-      color: white;
-      font-weight: 700;
-      font-size: 22px;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-    }
-    &-platforms {
-      display: flex;
-    }
-    &-platform {
-      width: 20px;
-      margin-left: 10px;
-    }
+    transition: all 0.2s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-btn:hover {
+    border: 30px solid map-get($pallet, accent);
+    color: map-get($pallet, primary3);
+    background: map-get($pallet, accent);
+  }
+  width: 100vw;
+  height: 730px;
+}
+.pop-games {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-bottom: 5em;
+  padding: 1em 2em;
+  .pop-title {
+    font-family: $major;
+    font-weight: normal;
+    font-size: 40px;
+    letter-spacing: 0.3em;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+  }
+  &-cards-con {
+    display: grid;
+    grid-template-columns: repeat(4, 0fr);
+    gap: 5em;
   }
 }

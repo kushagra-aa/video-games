@@ -10,6 +10,10 @@ export interface Game {
     parent_platforms: Array<ParentPlatforms>;
     publishers: Array<Publishers>;
     ratings: Array<Rating>;
+    playtime: number;
+    stores: Array<Store>;
+    tags: Array<Tag>;
+    esrb_rating: ESRB;
     screenshots: Array<Screenshots>;
     trailers: Array<Trailer>;
 }
@@ -40,4 +44,18 @@ interface Trailer {
     data: {
         max: string;
     };
+}
+
+interface Store {
+    store: {
+        domain: string;
+        name: string;
+    }
+}
+interface Tag {
+    name: string;
+}
+
+interface ESRB {
+    name: string;
 }

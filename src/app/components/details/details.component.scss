@@ -1,80 +1,144 @@
-.details-wrapper {
-  max-width: 900px;
-  margin: 20px auto;
-  position: relative;
-}
+@use "../../../scss" as *;
 
 .details {
-  ::ng-deep mwl-gauge {
-    width: 150px;
-    height: 150px;
-    display: block;
-    padding: 10px;
+  width: 100vw;
+  max-height: auto !important;
+  background: map-get($pallet, primary3);
 
-    .dial {
-      stroke-width: 10;
+  .game {
+    &-banner {
+      height: 800px;
+      overflow: hidden;
+      &-img {
+        width: 100%;
+      }
+      &-overlay {
+        position: absolute;
+      }
     }
 
-    .value {
-      stroke-dasharray: none;
-      stroke-width: 13;
-    }
-
-    .value-text {
-      fill: #fff;
-      font-weight: 700;
-      font-size: 24px;
-    }
-  }
-
-  .game-gauge {
-    position: absolute;
-    top: 50px;
-    right: 0;
-
-    &-label {
-      font-size: 20px;
-      color: #fff;
+    &-content {
+      text-align: center;
       position: relative;
-      bottom: 60px;
-    }
-  }
-}
-
-.game {
-  &-banner {
-    height: 442px;
-    overflow: hidden;
-
-    &-img {
-      width: 100%;
-      filter: blur(5px);
-    }
-  }
-
-  &-content {
-    text-align: center;
-    position: relative;
-    top: -200px;
-  }
-
-  &-header {
-    &-title {
-      font-size: 70px;
-      color: #fff;
-      font-weight: 700;
-      line-height: 70px;
-      white-space: nowrap;
+      top: -650px;
     }
 
-    &-release-date {
-      color: #fff;
-      font-weight: 700;
-    }
+    &-header {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 0px 0px;
+      grid-template-areas:
+        "release age"
+        "title title"
+        "meta meta"
+        "platforms genre";
+      justify-items: center;
+      align-items: center;
+      max-height: 600px;
+      &-top {
+        color: map-get($pallet, primary1);
+        font-weight: 700;
+        height: 76px;
+        width: 195px;
+        border-radius: 5px;
+        padding: 5px;
+        background: map-get($pallet, primary3);
+        opacity: 0.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        // for text
+        font-family: $chilanka;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        text-transform: capitalize;
+      }
 
-    &-genres {
-      color: #fff;
-      font-weight: 700;
+      &-release {
+        grid-area: release;
+      }
+      &-age {
+        grid-area: age;
+      }
+
+      &-title {
+        grid-area: title;
+        color: map-get($pallet, primary1);
+        font-family: $cinzel;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 60px;
+        line-height: 90px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.4em;
+        text-decoration-line: underline;
+        text-transform: lowercase;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: map-get($pallet, primary3);
+      }
+
+      &-gauge {
+        grid-area: meta;
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        &-label {
+          color: map-get($pallet, primary1);
+          font-size: 50px;
+          font-family: $chilanka;
+        }
+        ::ng-deep mwl-gauge {
+          width: 150px;
+          height: 150px;
+          display: block;
+
+          .dial {
+            stroke-width: 3;
+          }
+
+          .value {
+            stroke-dasharray: none;
+            stroke-width: 3;
+          }
+
+          .value-text {
+            color: map-get($pallet, primary1);
+            font-size: 50px;
+            font-family: $chilanka;
+          }
+        }
+      }
+      &-platforms {
+        grid-area: platforms;
+        display: flex;
+        gap: 0.5em;
+        &-platform {
+          height: 30px;
+          width: 30px;
+        }
+      }
+      &-genres {
+        grid-area: genre;
+        color: map-get($pallet, primary1);
+        font-family: $chilanka;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 27px;
+        text-align: center;
+        text-transform: capitalize;
+      }
     }
   }
 }

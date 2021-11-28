@@ -1,11 +1,43 @@
+@use "./scss" as *;
+
+// scroll bar
+body::-webkit-scrollbar-track {
+  display: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+::selection {
+  color: map-get($pallet, primary2);
+  background: map-get($pallet, accent);
+}
+/* Code for Firefox */
+::-moz-selection {
+  color: map-get($pallet, primary2);
+  background: map-get($pallet, accent);
+}
 * {
   padding: 0px;
   box-sizing: border-box;
   margin: 0px;
-  font-family: roboto, sans-serif;
+  font-family: Chilanka, sans-serif;
 }
 body {
-  background-color: #000;
+  background-color: map-get($pallet, primary1);
   padding-top: 60px;
-  height: 100%;
+  overflow-x: hidden;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }

@@ -1,49 +1,81 @@
 <div class="game-tabs">
     <mat-tab-group mat-align-tabs="start" backgroundColor="primary">
         <mat-tab label="About">
-            <p *ngIf="game.parent_platforms?.length" class="game-tabs-par">
-                Platforms:
-                <span *ngFor="let game of game.parent_platforms; let last=last">
-                    {{game.platform.name}}
-                    <span *ngIf="!last">,</span>
-                </span>
-            </p>
-            <p *ngIf="game.publishers" class="game-tabs-par">
-                Publishers:
-                <span *ngFor="let publisher of game.publishers; let last=last">
-                    {{publisher.name}}
-                    <span *ngIf="!last">,</span>
-                </span>
-            </p>
-            <p *ngIf="game.website" class="game-tabs-par">
-                Website:
-                <a href="{{game.website}}" target="_blank" class="game-tabs-link">
-                    {{game.website}}
-                </a>
-            </p>
-            <div class="game-description" [innerHTML]="game.description"></div>
-            <p class="game-tabs-votes">
-                <ng-container *ngFor="let rating of game.ratings">
-                    <span *ngIf="rating.title === 'exceptional'">
-                        <mat-icon class="game-votes-up">thumb_up</mat-icon>
-                        <span class="game-votes-count">{{ rating.count || 0 }}</span>
+            <div class="game-tabs-tab">
+                <div *ngIf="game.description" class="game-tabs-par">
+                    <div class="game-tabs-par-title">
+                        description:
+                    </div>
+                    <div class="game-description" [innerHTML]="game.description"></div>
+                </div>
+                <div *ngIf="game.tags?.length" class="game-tabs-par">
+                    <div class="game-tabs-par-title">
+                        Tags:
+                    </div>
+                    <span *ngFor="let game of game.tags; let last=last">
+                        {{game.name}}
+                        <span *ngIf="!last">,</span>
                     </span>
-                    <span *ngIf="rating.title === 'skip'">
-                        <mat-icon class="game-votes-down">thumb_down</mat-icon>
-                        <span class="game-votes-count">{{ rating.count || 0 }}</span>
+                </div>
+                <div *ngIf="game.stores?.length" class="game-tabs-par">
+                    <div class="game-tabs-par-title">
+                        Stores:
+                    </div>
+                    <span *ngFor="let game of game.stores; let last=last">
+                        {{game.store.name}}
+                        <span *ngIf="!last">,</span>
                     </span>
-                </ng-container>
-            </p>
+                </div>
+                <div *ngIf="game.publishers" class="game-tabs-par">
+                    <div class="game-tabs-par-title">
+                        Publishers:
+                    </div>
+                    <span *ngFor="let publisher of game.publishers; let last=last">
+                        {{publisher.name}}
+                        <span *ngIf="!last">,</span>
+                    </span>
+                </div>
+                <div *ngIf="game.website" class="game-tabs-par">
+                    <div class="game-tabs-par-title">
+                        Website:
+                    </div>
+                    <a href="{{game.website}}" target="_blank" class="game-tabs-link">
+                        {{game.website}}
+                    </a>
+                </div>
+                <div class="game-tabs-votes">
+                    <ng-container *ngFor="let rating of game.ratings">
+                        <span *ngIf="rating.title === 'exceptional'">
+                            <mat-icon class="game-votes-up">thumb_up</mat-icon>
+                            <span class="game-votes-count">{{ rating.count || 0 }}</span>
+                        </span>
+                        <span *ngIf="rating.title === 'skip'">
+                            <mat-icon class="game-votes-down">thumb_down</mat-icon>
+                            <span class="game-votes-count">{{ rating.count || 0 }}</span>
+                        </span>
+                    </ng-container>
+                </div>
+                <div *ngIf="game.playtime" class="game-tabs-par">
+                    <div class="game-tabs-par-title">
+                        Total Playtime:
+                    </div>
+                    <span>{{game.playtime}}Hours</span>
+                </div>
+            </div>
         </mat-tab>
         <mat-tab label="Screenshots" *ngIf="game.screenshots?.length">
-            <img *ngFor="let screenshot of game.screenshots" class="game-screenshots" src="{{screenshot.image}}"
-                alt="Screenshot">
+            <div class="game-tabs-tab game-screenshots">
+                <img *ngFor="let screenshot of game.screenshots" class="game-screenshot" src="{{screenshot.image}}"
+                    alt="Screenshot">
+            </div>
         </mat-tab>
         <mat-tab *ngIf="game.trailers?.length" label="Trailers">
-            <video class="game-trailer" controls *ngFor="let trailer of game.trailers">
-                <source src="{{trailer.data?.max}}" type="video/mp4">
-                Your Browser Does Not Support Videos
-            </video>
+            <div class="game-tabs-tab">
+                <video class="game-trailer" controls *ngFor="let trailer of game.trailers">
+                    <source src="{{trailer.data?.max}}" type="video/mp4">
+                    Your Browser Does Not Support Videos
+                </video>
+            </div>
         </mat-tab>
     </mat-tab-group>
 </div>

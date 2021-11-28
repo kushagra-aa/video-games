@@ -1,26 +1,34 @@
+@use "../../../scss" as *;
+
 .game {
   &-tabs {
-    background: rgb(63 81 181 / 61%);
-    color: #fff;
+    background: map-get($pallet, secondary);
+    color: map-get($pallet, accent);
     text-align: left;
-    padding: 10px;
 
-    &-par {
-      padding: 20px 20px 0 20px;
-      margin-bottom: 0;
-    }
-
-    &-link {
-      color: #fff;
-    }
-
-    &-votes {
-      margin-left: 20px;
+    &-tab {
+      padding: 2em;
       display: flex;
-
-      &-count {
-        margin-left: 5px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 1em;
+    }
+    &-par {
+      font-size: 18px;
+      line-height: 22px;
+      &-title {
+        margin-bottom: 10px;
+        color: map-get($pallet, primary1);
+        font-family: $cinzel;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        text-transform: capitalize;
       }
+    }
+    &-link {
+      color: map-get($pallet, accent);
     }
 
     ::ng-deep .mat-tab-labels {
@@ -29,11 +37,13 @@
   }
 
   &-votes {
+    display: flex;
+    gap: 0.5em;
     &-up {
-      color: #5ee432;
+      color: map-get($pallet, accent);
     }
     &-down {
-      color: #ef4655;
+      color: map-get($pallet, accent);
     }
 
     &-count {
@@ -42,11 +52,9 @@
       vertical-align: super;
     }
   }
-
-  &-description {
-    padding: 20px;
+  &-screenshots {
+    align-items: center;
   }
-
   &-screenshot {
     margin-top: 5px;
     width: calc(50% - 10px);

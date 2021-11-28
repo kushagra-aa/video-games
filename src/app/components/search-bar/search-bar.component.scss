@@ -1,54 +1,53 @@
-.search {
-  &-container {
-    width: 100vw;
-    height: 60px;
-    background: #323a45;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 4;
-  }
-  &-form {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  &-input {
-    margin-left: 30px;
-    padding: 10px;
-    width: 300px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    outline: none;
-    border: none;
-  }
-  &-btn {
-    outline: none;
-    border: none;
-    background: blue;
-    padding: 10px;
-    border-left: 1px solid #000;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: white;
-    font-weight: 700;
-    transition-duration: 0.5s;
-    cursor: pointer;
+@use "../../../scss" as *;
 
-    &:hover {
-      color: blue;
-      background: white;
-      border: 1px solid blue;
+.search-form {
+  z-index: 10;
+  left: 25rem;
+  top: -0.5rem;
+  position: fixed;
+  margin-left: 2em;
+  input[type="text"] {
+    border: none;
+    border-radius: 15px;
+    width: 570px;
+    height: 50px;
+    opacity: 0.9;
+    background: map-get($pallet, primary3);
+    color: map-get($pallet, primary1);
+    font-family: $chilanka;
+    font-weight: 300;
+    font-size: 25px;
+    text-align: center;
+    &::placeholder {
+      text-transform: uppercase;
+      position: relative;
+      top: 0.1em;
+      color: map-get($pallet, primary1);
     }
   }
-}
-.logo {
-  margin-left: -90px;
-  color: burlywood;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
+  .search-btn {
+    position: relative;
+    top: 1.15em;
+    right: 4.6em;
+    border-radius: 15px;
+    width: 62px;
+    height: 50px;
+    opacity: 0.8;
+    background: map-get($pallet, primary2);
+    border: none;
+    color: map-get($pallet, primary3);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(70%);
+    }
+    mat-icon {
+      width: 62px;
+      height: 50px;
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
