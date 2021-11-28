@@ -24,6 +24,23 @@ It uses [Rawg](https://rawg.io/)'s [API](https://rapidapi.com/accujazz/api/rawg-
 - Signin/out
 - CSS Animations
 
+## Screenshots
+
+### Home Page
+![image](https://user-images.githubusercontent.com/68841296/143768773-f1043b01-995b-4087-8f60-09efa458fc47.png)
+
+### Games
+![image](https://user-images.githubusercontent.com/68841296/143768806-4ff1f525-9fd8-4b23-ab05-6a0b6eabf6e1.png)
+
+### Details
+![image](https://user-images.githubusercontent.com/68841296/143768840-8d05dd7f-51a5-424a-8beb-728ec17820d7.png)
+![image](https://user-images.githubusercontent.com/68841296/143768847-f393a76a-c28e-48b3-9461-f970de32191b.png)
+
+### About Page
+![image](https://user-images.githubusercontent.com/68841296/143768857-4efd9545-0b8c-4df4-a4bc-3509e4cbc0fd.png)
+![image](https://user-images.githubusercontent.com/68841296/143768862-ccbe339a-d84f-42a8-a325-99e9d7df4198.png)
+
+
 ## Made using
 
 - [HTML](https://www.w3schools.com/html/)
