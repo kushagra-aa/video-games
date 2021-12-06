@@ -4,6 +4,7 @@ Video Game is a Web Application.
 A user can view details about their favorite video games.
 It uses [Rawg](https://rawg.io/)'s [API](https://rapidapi.com/accujazz/api/rawg-video-games-database/details) for the game data.
 
+Built with 🤍 For You!
 ## Features
 
 - Game Details
